@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stephen Huszar | Official Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+      // Robust Global Shim for Libraries expecting Node environment
+      window.process = window.process || { env: { NODE_ENV: 'development' } };
+      window.global = window; 
+    </script>
+    <script>
+      // Global Error Handler to catch "Black Screen" issues
+      window.onerror = function(message, source, lineno, colno, error) {
+        const root = document.getElementById('root');
+        if (root) {
+          root.innerHTML = `
+            <div style="background:#0f172a; color:#ef4444; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; font-family:sans-serif; text-align:center;">
+              <h2 style="font-size:1.5rem; margin-bottom:1rem;">Application Critical Error</h2>
+              <p style="opacity:0.8; max-width:600px;">${message}</p>
+              <p style="font-size:0.8rem; margin-top:1rem; opacity:0.5;">${source}:${lineno}</p>
+              <button onclick="window.location.reload()" style="margin-top:2rem; padding:0.5rem 1rem; background:#d4af37; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Reload</button>
+            </div>
+          `;
+        }
+      };
+    </script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Cormorant Garamond"', 'serif'],
+              sans: ['"Montserrat"', 'sans-serif'],
+              mono: ['"Roboto"', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                dark: '#0f172a',
+                gold: '#d4af37',
+                cream: '#f5f5dc',
+                sage: '#8da399',
+                charcoal: '#1e293b',
+                red: '#991b1b'
+              }
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0f172a;
+        color: #f5f5dc;
+        overflow-x: hidden;
+        margin: 0;
+      }
+      #root {
+        min-height: 100vh;
+        width: 100%;
+        display: block;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f172a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #d4af37; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #b59226; 
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?external=react,react-dom",
+    "@remix-run/router": "https://esm.sh/@remix-run/router@1.15.3",
+    "@google/genai": "https://esm.sh/@google/genai",
+    "lucide-react": "https://esm.sh/lucide-react@0.344.0?external=react,react-dom",
+    "framer-motion": "https://esm.sh/framer-motion@10.18.0?external=react,react-dom",
+    "chart.js": "https://esm.sh/chart.js@4.4.2",
+    "chart.js/auto": "https://esm.sh/chart.js@4.4.2/auto",
+    "chart.js/helpers": "https://esm.sh/chart.js@4.4.2/helpers",
+    "react-chartjs-2": "https://esm.sh/react-chartjs-2@5.2.0?external=react,react-dom,chart.js"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root">
+      <div style="height: 100vh; width: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; color: #d4af37; font-family: serif;">
+        <div style="font-size: 32px; margin-bottom: 1rem;">Stephen Huszar</div>
+        <div style="font-size: 14px; font-family: sans-serif; opacity: 0.7;">Loading Portfolio...</div>
+      </div>
+    </div>
+    <script type="module" src="index.tsx"></script>
+    <script>
+      // Fallback timeout
+      setTimeout(() => {
+        const root = document.getElementById('root');
+        if (root && root.innerText.includes('Loading Portfolio')) {
+          console.warn('App load timeout triggered');
+        }
+      }, 8000);
+    </script>
+  </body>
+</html>
